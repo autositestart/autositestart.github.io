@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>youzhi | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="上期为大家介绍了requests库的基本信息以及使用requests库爬取某东的商品页，收到了很多同学的反馈说期待猪哥的更新，猪哥感到非常开心，今天就带大家来玩一把刺激的！ 一、需求背景在实际开发过程中，在我们动手开发之前，都是由产品经理为我们（测试、前端、后端、项目经理等）先讲解一下需求，我们了解了需求之后，才开始一起来讨论技术方案。我们自己实现一些小功能时同样需要讨论需求，也就是告诉别人我们为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="youzhi">
+<meta property="og:url" content="http://yoursite.com/2019/07/19/youzhi/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="上期为大家介绍了requests库的基本信息以及使用requests库爬取某东的商品页，收到了很多同学的反馈说期待猪哥的更新，猪哥感到非常开心，今天就带大家来玩一把刺激的！ 一、需求背景在实际开发过程中，在我们动手开发之前，都是由产品经理为我们（测试、前端、后端、项目经理等）先讲解一下需求，我们了解了需求之后，才开始一起来讨论技术方案。我们自己实现一些小功能时同样需要讨论需求，也就是告诉别人我们为">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709161527742.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019070916155547.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190710170342585.png?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709173046883.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709173420637.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709180639748.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709181623175.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709181841646.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709183316160.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709183838770.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709195835765.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709210111511.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709211305943.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709214011492.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709214638446.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019070922422194.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190709224405446.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190710102802349.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/201907101034326.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190710103625997.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019071010423136.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019071013522188.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190710135804482.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190710162711803.png?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190710153431257.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190710153743818.jpg?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190710162632490.png?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181217213155258.gif">
+<meta property="og:updated_time" content="2019-07-19T10:48:58.041Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="youzhi">
+<meta name="twitter:description" content="上期为大家介绍了requests库的基本信息以及使用requests库爬取某东的商品页，收到了很多同学的反馈说期待猪哥的更新，猪哥感到非常开心，今天就带大家来玩一把刺激的！ 一、需求背景在实际开发过程中，在我们动手开发之前，都是由产品经理为我们（测试、前端、后端、项目经理等）先讲解一下需求，我们了解了需求之后，才开始一起来讨论技术方案。我们自己实现一些小功能时同样需要讨论需求，也就是告诉别人我们为">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190709161527742.jpg?">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-youzhi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/19/youzhi/" class="article-date">
+  <time datetime="2019-07-19T18:36:57.000Z" itemprop="datePublished">2019-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      youzhi
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上期为大家介绍了requests库的基本信息以及使用requests库爬取某东的商品页，收到了很多同学的反馈说期待猪哥的更新，猪哥感到非常开心，今天就带大家来玩一把刺激的！</p>
+<h2 id="一、需求背景"><a href="#一、需求背景" class="headerlink" title="一、需求背景"></a>一、需求背景</h2><p>在实际开发过程中，在我们动手开发之前，都是由产品经理为我们（测试、前端、后端、项目经理等）先讲解一下需求，我们了解了需求之后，才开始一起来讨论技术方案。<br><img src="https://img-blog.csdnimg.cn/20190709161527742.jpg?" alt="在这里插入图片描述"><br>我们自己实现一些小功能时同样需要讨论需求，也就是告诉别人我们为什么要做这个东西？或者我们想利用这款产品解决什么问题。</p>
+<p>我们常常看到一些有关充气娃娃的表情包和图片或新闻，但是这种东西很少会像一些小视频一些相互交流，大家可能都是偷摸玩耍。所以猪哥相信其实大部分同学并没有亲身体验过充气娃娃到底是什么感觉（包括猪哥），所以猪哥很好奇究竟是什么一种体验？真的如传言中那样爽吗？<br><img src="https://img-blog.csdnimg.cn/2019070916155547.jpg?" alt="在这里插入图片描述"></p>
+<h2 id="二、功能描述"><a href="#二、功能描述" class="headerlink" title="二、功能描述"></a>二、功能描述</h2><p>基于很多人没有体验过充气娃娃是什么感觉，但是又很好奇，所以希望通过<strong>爬虫+数据分析</strong>的方式直观而真是的告诉大家（下图为成品图）。<br><img src="https://img-blog.csdnimg.cn/20190710170342585.png?" alt="在这里插入图片描述"></p>
+<h2 id="三、技术方案"><a href="#三、技术方案" class="headerlink" title="三、技术方案"></a>三、技术方案</h2><p>为了实现上面的需求以及功能，我们来讨论下具体的技术实现方案：</p>
+<ol>
+<li>分析某东评论数据请求</li>
+<li>使用requests库抓取某东的充气娃娃评论</li>
+<li>使用词云做数据展示</li>
+</ol>
+<h2 id="四、技术实现"><a href="#四、技术实现" class="headerlink" title="四、技术实现"></a>四、技术实现</h2><p>上篇文章中就给大家说过，今天我们以某东商品编号为：<strong>1263013576</strong>的商品为对象，进行数据分析，我们来看看详细的技术实现步骤吧！</p>
+<blockquote>
+<p>本教程只为学习交流，不得用于商用获利，后果自负！<br>如有侵权或者对任何公司或个人造成不利影响，请告知删除</p>
+</blockquote>
+<h3 id="1-分析并获取评论接口的URL"><a href="#1-分析并获取评论接口的URL" class="headerlink" title="1.分析并获取评论接口的URL"></a>1.分析并获取评论接口的URL</h3><p>第一步：打开某东的商品页，搜索你想研究的商品。<br><img src="https://img-blog.csdnimg.cn/20190709173046883.jpg?" alt="在这里插入图片描述"><br>第二步：我们在页面中鼠标右键选择检查（或F12）调出浏览器的调试窗口。<br><img src="https://img-blog.csdnimg.cn/20190709173420637.jpg?" alt="在这里插入图片描述"><br>第三步：调出浏览器后点击评论按钮使其加载数据，然后我们点击network查看数据。<br><img src="https://img-blog.csdnimg.cn/20190709180639748.jpg?" alt="在这里插入图片描述"><br>第四步：查找加载评论数据的请求url，我们可以使用某条评论中的一段话，然后在调试窗口中搜索。<br><img src="https://img-blog.csdnimg.cn/20190709181623175.jpg?" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190709181841646.jpg?" alt="在这里插入图片描述"><br>经过上面4步分析，我们就拿到了京东评论数据的接口：<a href="https://sclub.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98vv4654&productId=1263013576&score=0&sortType=5&page=0&pageSize=10&isShadowSku=0&fold=1" target="_blank" rel="noopener">https://sclub.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98vv4654&amp;productId=1263013576&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1</a></p>
+<blockquote>
+<p>productPageComments：看这个名字就知道是产品页评论</p>
+</blockquote>
+<h3 id="2-爬取评论数据"><a href="#2-爬取评论数据" class="headerlink" title="2.爬取评论数据"></a>2.爬取评论数据</h3><p>拿到评论数据接口url之后，我们就可以开始写代码抓取数据了。一般我们会先尝试抓取一条数据，成功之后，我们再去分析如何实现大量抓取。</p>
+<p>上一篇我们已经讲解了如何使用requests库发起http/s请求，我们来看看代码<br><img src="https://img-blog.csdnimg.cn/20190709183316160.jpg?" alt="在这里插入图片描述"><br>但是在打印的结果中数据却是空？为何浏览器请求成功，而我们的代码却请求不到数据呢？难道我们遇到了反扒？这种情况下如何解决？</p>
+<p>大家在遇到这种情况时，回到浏览器的调试窗口，查看下浏览器发起的请求头，因为可能浏览器请求时携带了什么请求头参数而我们代码中没有。<br><img src="https://img-blog.csdnimg.cn/20190709183838770.jpg?" alt="在这里插入图片描述"><br>果然，我们在浏览器头中看到了有两个请求头<strong>Referer</strong>和<strong>User-Agent</strong>，那我们先把他们加到代码的请求头中，再试试！<br><img src="https://img-blog.csdnimg.cn/20190709195835765.jpg?" alt="在这里插入图片描述"></p>
+<h3 id="3-数据提取"><a href="#3-数据提取" class="headerlink" title="3.数据提取"></a>3.数据提取</h3><p>我们对爬取的数据分析发现，此数据为jsonp跨域请求返回的json结果，所以我们只要把前面的<code>fetchJSON_comment98vv4646(</code>和最后的<code>)</code>去掉就拿到json数据了。<br><img src="https://img-blog.csdnimg.cn/20190709210111511.jpg?" alt="在这里插入图片描述"><br>将json数据复制到json格式化工具中或者在Chrome浏览器调试窗口点击<code>Preview</code>也可以看到，json数据中有一个key为<code>comments</code>的值便是我们想要的评论数据。<br><img src="https://img-blog.csdnimg.cn/20190709211305943.jpg?" alt="在这里插入图片描述"><br>我们再对comments值进行分析发现是一个有多条数据的列表，而列表里的每一项就是每个评论对象，包含了评论的内容，时间，id，评价来源等等信息，而其中的<code>content</code>字段便是我们在页面看到的用户评价内容。<br><img src="https://img-blog.csdnimg.cn/20190709214011492.jpg?" alt="在这里插入图片描述"><br>那我们来用代码将每个评价对象的<code>content</code>字段提取并打印出来<br><img src="https://img-blog.csdnimg.cn/20190709214638446.jpg?" alt="在这里插入图片描述"></p>
+<h3 id="4-数据保存"><a href="#4-数据保存" class="headerlink" title="4.数据保存"></a>4.数据保存</h3><p>数据提取后我们需要将他们保存起来，一般保存数据的格式主要有：文件、数据库、内存这三大类。今天我们就将数据保存为txt文件格式，因为操作文件相对简单同时也能满足我们的后续数据分析的需求。<br><img src="https://img-blog.csdnimg.cn/2019070922422194.jpg?" alt="在这里插入图片描述"><br>然后我们查看一下生成的文件内容是否正确<br><img src="https://img-blog.csdnimg.cn/20190709224405446.jpg?" alt="在这里插入图片描述"></p>
+<h3 id="5-批量爬取"><a href="#5-批量爬取" class="headerlink" title="5.批量爬取"></a>5.批量爬取</h3><p>再完成一页数据爬取、提取、保存之后，我们来研究一下如何批量抓取？</p>
+<p>做过web的同学可能知道，有一项功能是我们必须要做的，那便是分页。何为分页？为何要做分页？</p>
+<blockquote>
+<p>我们在浏览很多网页的时候常常看到“下一页”这样的字眼，其实这就是使用了分页技术，因为向用户展示数据时不可能把所有的数据一次性展示，所以采用分页技术，一页一页的展示出来。</p>
+</blockquote>
+<p>让我们再回到最开始的加载评论数据的url：</p>
+<blockquote>
+<p><a href="https://sclub.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98vv4654&productId=1263013576&score=0&sortType=5&page=0&pageSize=10&isShadowSku=0&fold=1" target="_blank" rel="noopener">https://sclub.jd.com/comment/productPageComments.action?callback=fetchJSON_comment98vv4654&amp;productId=1263013576&amp;score=0&amp;sortType=5&amp;page=0&amp;pageSize=10&amp;isShadowSku=0&amp;fold=1</a></p>
+</blockquote>
+<p>我们可以看到链接里面有两个参数<strong>page=0&amp;pageSize=10</strong>，page表示当前的页数，pageSize表示每页多少条，那这两个数据直接去数据库limit数据。</p>
+<p>老司机一眼便可以看出这就是分页的参数，但是有同学会说：如果我是老司机还干嘛看你的文章？所以<strong>我教大家如何来找到这个分页参数</strong>。</p>
+<p>回到某东的商品页，我们将评价页面拉到最底下，发现有分页的按钮，然后我们在调试窗口清空之前的请求记录。<br><img src="https://img-blog.csdnimg.cn/20190710102802349.jpg?" alt="在这里插入图片描述"><br>清空之前的请求记录之后，我们点击上图红框分页按钮的数字2，代表这第二页，然后复制第一条评价去调试窗口搜索，最后找到请求链接。<br><img src="https://img-blog.csdnimg.cn/201907101034326.jpg?" alt="在这里插入图片描述"><br>然后我们点击<code>Headers</code>查看第二页请求数据的url<br><img src="https://img-blog.csdnimg.cn/20190710103625997.jpg?" alt="在这里插入图片描述"><br>然后我们比较第一页评价与第二页评价的url有何区别<br><img src="https://img-blog.csdnimg.cn/2019071010423136.jpg?" alt="在这里插入图片描述"><br>这里也就验证了猪哥的猜想：page表示当前的页数，pageSize表示每页多少条。而且我们还能得出另一个结论：第一个page=0，第二页page=1 然后依次往后。有同学会问：为什么第一页不是1，而是0，因为在数据库中一般的都是从0开始计数，编程行业很多数组列表都是从0开始计数。</p>
+<p>好了，知道分页规律之后，我们只要在每次请求时将page参数递增不就可以批量抓取了吗？我们来写代码吧！<br><img src="https://img-blog.csdnimg.cn/2019071013522188.jpg?" alt="在这里插入图片描述"><br>简单讲解一下做的改动：</p>
+<ol>
+<li>对<strong>spider_comment</strong>方法增加入参<strong>page</strong>：页数，然后在url中增加占位符，这样就可以动态修改url，爬取指定的页数。</li>
+<li>增加一个<strong>batch_spider_comment</strong>方法，循环调用<strong>spider_comment</strong>方法，暂定爬取100页。</li>
+<li>在<strong>batch_spider_comment</strong>方法的for循环中设置了一个随机的休眠时间，意在模拟用户浏览，防止因为爬取太频繁被封ip。</li>
+</ol>
+<p>爬取完成之后检查成果<br><img src="https://img-blog.csdnimg.cn/20190710135804482.jpg?" alt="在这里插入图片描述"></p>
+<h3 id="6-数据清洗"><a href="#6-数据清洗" class="headerlink" title="6.数据清洗"></a>6.数据清洗</h3><p>数据成功保存之后我们需要对数据进行分词清洗，对于分词我们使用著名的分词库<strong>jieba</strong>。<br>首先是安装jieba库：</p>
+<blockquote>
+<p>pip3 install jieba</p>
+</blockquote>
+<p>所以猪哥很好奇究竟是什么一种体验</p>
+<p><img src="https://img-blog.csdnimg.cn/20190710162711803.png?" alt="在这里插入图片描述"><br>当然这里你还可以对一些介词等无效词进行剔除，这样可以避免无效数据。</p>
+<h3 id="7-生成词云"><a href="#7-生成词云" class="headerlink" title="7.生成词云"></a>7.生成词云</h3><p>生成云词我们需要用到<code>numpy</code>、<code>matplotlib</code>、<code>wordcloud</code>、<code>Pillow</code>这几个库，大家先自行下载。<code>matplotlib</code>库用于图像处理，<code>wordcloud</code>库用于生成词云。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190710153431257.jpg?" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>注意：font_path是选择字体的路径，如果不设置默认字体可能不支持中文，猪哥选择的是Mac系统自带的宋体字！</p>
+</blockquote>
+<p>最终结果：<br><img src="https://img-blog.csdnimg.cn/20190710153743818.jpg?" alt="在这里插入图片描述"><br>我们来看看全代码：<br><img src="https://img-blog.csdnimg.cn/20190710162632490.png?" alt="在这里插入图片描述"></p>
+<h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><p>因考虑新手的友好性，文章篇幅较长，详细的介绍了从需求到技术分析、爬取数据、清洗数据、最后的分析数据。我们来总结一下本片文章学到的东西吧：</p>
+<ol>
+<li>如何分析并找出加载数据的url</li>
+<li>如何使用requests库的headers解决<strong>Referer</strong>和<strong>User-Agent</strong>反扒技术</li>
+<li>如何找出分页参数实现批量爬取</li>
+<li>数据的提取与保存到文件</li>
+<li>使用jieba库对数据分词清洗</li>
+<li>使用wordcloud生成指定形状的词云</li>
+</ol>
+<p>这是一套完整的数据分析案例，希望大家能自己动手尝试，去探索更多有趣的案例，做个有趣的人～</p>
+<p>项目地址：<a href="https://github.com/pig6/jd_comment_spider" target="_blank" rel="noopener">https://github.com/pig6/jd_comment_spider</a><br><img src="https://img-blog.csdnimg.cn/20181217213155258.gif" alt="在这里插入图片描述"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/19/youzhi/" data-id="cjy9ze4k00004huw1zzflzdze" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/19/youzhi2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          youzhi2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/19/code1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">code1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/19/youzhi2/">youzhi2</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/19/youzhi/">youzhi</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/19/code1/">code1</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/19/test2/">test2</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/19/test/">test</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

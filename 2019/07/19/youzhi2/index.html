@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>youzhi2 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="通过一个实际案例彻底理解 promise 前言 案例 案例分析 通过 Promise 对案例进行优化 总结  前言JavaScrip 是单线程，前端在大部分情况下写出来的 JS 代码都是同步执行。偶尔会通过回调函数达到异步执行的目的。后来有了 promise 对象解决异步问题，被纳入到 ES6 标准中。 但是很多人都不理解 promise，或者一知半解，感觉懂又好像不懂，最主要的是在实际项目中用得">
+<meta property="og:type" content="article">
+<meta property="og:title" content="youzhi2">
+<meta property="og:url" content="http://yoursite.com/2019/07/19/youzhi2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="通过一个实际案例彻底理解 promise 前言 案例 案例分析 通过 Promise 对案例进行优化 总结  前言JavaScrip 是单线程，前端在大部分情况下写出来的 JS 代码都是同步执行。偶尔会通过回调函数达到异步执行的目的。后来有了 promise 对象解决异步问题，被纳入到 ES6 标准中。 但是很多人都不理解 promise，或者一知半解，感觉懂又好像不懂，最主要的是在实际项目中用得">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190719154134495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDEzNTEyMQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-07-19T10:48:58.041Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="youzhi2">
+<meta name="twitter:description" content="通过一个实际案例彻底理解 promise 前言 案例 案例分析 通过 Promise 对案例进行优化 总结  前言JavaScrip 是单线程，前端在大部分情况下写出来的 JS 代码都是同步执行。偶尔会通过回调函数达到异步执行的目的。后来有了 promise 对象解决异步问题，被纳入到 ES6 标准中。 但是很多人都不理解 promise，或者一知半解，感觉懂又好像不懂，最主要的是在实际项目中用得">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190719154134495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDEzNTEyMQ==,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-youzhi2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/19/youzhi2/" class="article-date">
+  <time datetime="2019-07-19T18:47:32.000Z" itemprop="datePublished">2019-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      youzhi2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="通过一个实际案例彻底理解-promise"><a href="#通过一个实际案例彻底理解-promise" class="headerlink" title="通过一个实际案例彻底理解 promise"></a>通过一个实际案例彻底理解 promise</h3><ul>
+<li><a href="#_1">前言</a></li>
+<li><a href="#_9">案例</a></li>
+<li><a href="#_16">案例分析</a></li>
+<li><a href="#_Promise__70">通过 Promise 对案例进行优化</a></li>
+<li><a href="#_157">总结</a></li>
+</ul>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>JavaScrip 是单线程，前端在大部分情况下写出来的 JS 代码都是同步执行。偶尔会通过回调函数达到异步执行的目的。后来有了 promise 对象解决异步问题，被纳入到 ES6 标准中。</p>
+<p>但是很多人都不理解 promise，或者一知半解，感觉懂又好像不懂，最主要的是在实际项目中用得少，不能够学以致用，融会贯通。但也正是因为不能够真正理解所以也不敢贸然用在项目中，于是两者陷入循环，导致很多人对这个既能够提高代码质量，又在一定程度上提升性能的对象弃之不用。</p>
+<p>我从前对 promise 的印象也是停留在以上阶段，直到今天，在一个实际开发案例中运用到了 promise ，让我对 promise 有了深刻的理解，在此分享给大家。</p>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><p><img src="https://img-blog.csdnimg.cn/20190719154134495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDEzNTEyMQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>在以上的页面中，有一个点赞功能，是上级看过记录之后进行评价的反馈。<br><strong>上级打开下属的记录详情之后，涉及到的逻辑如下</strong>：</p>
+<ol>
+<li>调登陆接口，拿到上级userId。</li>
+<li>调点赞列表接口。</li>
+<li>通关上级的 userId，与点赞列表接口里面对应的点赞  id 比较，如果上级点过赞，则点赞的图标是实心。否则是空心。</li>
+</ol>
+<h1 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h1><p>实现以上功能需要调两个接口。首先调登陆接口,拿到 userId，然后在回调中再调点赞列表接口，循环列表，拿到点赞 id ，与 userId 做比较。代码如下：</p>
+<p>第一步：调用登陆接口，拿到 userId</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function getUserId(cb)&#123;</span><br><span class="line">axios.post(Config.serverUrl + &quot;/login/login&quot;, </span><br><span class="line">&#123;code: result.code,</span><br><span class="line">url:url,&#125;, &#123;</span><br><span class="line">headers: &#123;&apos;Content-Type&apos;: &apos;application/json&apos;&#125;</span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">if (res.data.isSuc == true) &#123;</span><br><span class="line">sessionStorage.setItem(Config.SESSION_DING_USER,JSON.stringify(res.data.result));</span><br><span class="line">let s = sessionStorage.getItem(Config.SESSION_DING_USER);</span><br><span class="line">let user = JSON.parse(s);</span><br><span class="line">let userId = user &amp;&amp; user.userid;</span><br><span class="line">if(cb)&#123;</span><br><span class="line">cb(userId);</span><br><span class="line">&#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">      alert(登录失败);&#125;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>第二步，调用点赞列表接口</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function getPraiseList(cb)&#123;</span><br><span class="line">            axios.post(Config.serverUrl + &quot;/visitAndSign/getpraiseInfo&quot;, &#123;</span><br><span class="line">                &quot;signId&quot;: Number(self.id),</span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                headers: &#123;&apos;Content-Type&apos;: &apos;application/json&apos;, &apos;DING_TOKEN&apos;: self.token&#125;</span><br><span class="line">            &#125;).then(function (res) &#123;</span><br><span class="line">                if (res.data.isSuc) &#123;</span><br><span class="line">                    let list = res.data.result;</span><br><span class="line">                    if(cb)&#123;</span><br><span class="line">                        cb(list);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></code></pre><p>第三步，根据回调结果，判断是否点过赞</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">getUserId(function (userId)&#123;</span><br><span class="line">  getPraiseList(function(list)&#123;</span><br><span class="line">   for (var i=0;i&lt;list.length;i++)&#123;</span><br><span class="line">            if(list[i].praiseUserid == userId)&#123;</span><br><span class="line">              self.isPraise = 0;</span><br><span class="line">              break;</span><br><span class="line">          &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></code></pre><h1 id="通过-Promise-对案例进行优化"><a href="#通过-Promise-对案例进行优化" class="headerlink" title="通过 Promise 对案例进行优化"></a>通过 Promise 对案例进行优化</h1><p>以上通过两层回调可以实现业务逻辑，咋一看没什么大问题，但是如果业务还没完，假设又增加一个需求，根据点赞状态判断是否调用另一个接口。这样就会陷入回调地狱，回调地狱主要是指回调太多，代码冗长，到最后很有可能你都不知道那个回调对应的那个参数了。</p>
+<p>为了优雅的解决以上问题，Promise 对象闪亮登场，现在使用 Promise 实现以上功能。并且假设得到是否点赞状态之后还要调第三个接口。</p>
+<p><strong>第一步优化，使用 Promise 对象和 .then() 方法</strong></p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">var promise = new Promise(function(resolve,reject)&#123;</span><br><span class="line">axios.post(Config.serverUrl + &quot;/login/login&quot;, </span><br><span class="line">&#123;code: result.code,</span><br><span class="line">url:url,&#125;, &#123;</span><br><span class="line">headers: &#123;&apos;Content-Type&apos;: &apos;application/json&apos;&#125;</span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">if (res.data.isSuc == true) &#123;</span><br><span class="line">sessionStorage.setItem(Config.SESSION_DING_USER,JSON.stringify(res.data.result));</span><br><span class="line">let s = sessionStorage.getItem(Config.SESSION_DING_USER);</span><br><span class="line">let user = JSON.parse(s);</span><br><span class="line">let userId = user &amp;&amp; user.userid;</span><br><span class="line">resolve(userId);</span><br><span class="line">&#125;&#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">promise.then(function(userId)&#123;</span><br><span class="line">axios.post(Config.serverUrl + &quot;/visitAndSign/getpraiseInfo&quot;, &#123;</span><br><span class="line">                &quot;signId&quot;: Number(self.id),</span><br><span class="line">&#125;, &#123;</span><br><span class="line">headers: &#123;&apos;Content-Type&apos;: &apos;application/json&apos;, &apos;DING_TOKEN&apos;: self.token&#125;</span><br><span class="line">            &#125;).then(function (res) &#123;</span><br><span class="line">                if (res.data.isSuc) &#123;</span><br><span class="line">                    let list = res.data.result;</span><br><span class="line">                    for (var i=0;i&lt;list.length;i++)&#123;</span><br><span class="line">                   if(list[i].praiseUserid == userId)&#123;</span><br><span class="line">                   self.isPraise = 0;</span><br><span class="line">                   break;</span><br><span class="line">                   &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">                  return self.isPraise;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">.then(function(res)&#123;</span><br><span class="line">console.log(res)//点赞状态实现结果，这里可以继续调第三个接口</span><br><span class="line">&#125;)</span><br><span class="line">//后面如果还有回调继续用.then()即可。</span><br></pre></td></tr></table></figure></code></pre><p><strong>第二步优化，使用 Promise.all 优化性能</strong></p>
+<p>虽然通过 Promise 对象解决了代码展示问题。还有一个问题，等到登陆接口调成功之后再调点赞列表接口。但是实际上点赞列表接口并不依赖于登陆接口。所以登陆接口和点赞列表接口可以同时调，加快接口返回速度，但问题是，做最后的对比处理（点赞列表编号与用户编号对比来判断用户是否点过赞）需要在两个接口都成功返回才可。所以这时候就用上了 Promise.all。</p>
+<p>Promise.all 接收一个数组，而数组中就是每一个 Promise 对象。假设 Promise.all 的返回结果定义为 pro。pro.then()就是两个接口都调成功之后的回调。</p>
+<p>对以上代码进一步改造如下：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">var promise1 = new Promise(function(resolve,rejuect)&#123;</span><br><span class="line">axios.post(Config.serverUrl + &quot;/login/login&quot;, </span><br><span class="line">&#123;code: result.code,</span><br><span class="line">url:url,&#125;, &#123;</span><br><span class="line">headers: &#123;&apos;Content-Type&apos;: &apos;application/json&apos;&#125;</span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">if (res.data.isSuc == true) &#123;</span><br><span class="line">sessionStorage.setItem(Config.SESSION_DING_USER,JSON.stringify(res.data.result));</span><br><span class="line">let s = sessionStorage.getItem(Config.SESSION_DING_USER);</span><br><span class="line">let user = JSON.parse(s);</span><br><span class="line">let userId = user &amp;&amp; user.userid;</span><br><span class="line">resolve(userId);</span><br><span class="line">&#125;&#125;)</span><br><span class="line">&#125;)</span><br><span class="line">var promise2 = new Promise(function(resolve,rejuect)&#123;</span><br><span class="line">axios.post(Config.serverUrl + &quot;/visitAndSign/getpraiseInfo&quot;, &#123;</span><br><span class="line">                &quot;signId&quot;: Number(self.id),</span><br><span class="line">&#125;, &#123;</span><br><span class="line">headers: &#123;&apos;Content-Type&apos;: &apos;application/json&apos;, &apos;DING_TOKEN&apos;: self.token&#125;</span><br><span class="line">            &#125;).then(function (res) &#123;</span><br><span class="line">                if (res.data.isSuc) &#123;               </span><br><span class="line">                  resolve(res.data.result);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;)</span><br><span class="line">var pro = Promise.all([promise1,promise2]);</span><br><span class="line">pro.then(function(userId,list)&#123;</span><br><span class="line">     for (var i=0;i&lt;list.length;i++)&#123;</span><br><span class="line">    if(list[i].praiseUserid == userId)&#123;</span><br><span class="line">    self.isPraise = 0;</span><br><span class="line">        break;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li><p>Promise 对象用法</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var  promise = new Promise(function(resolve,rejuct)&#123;</span><br><span class="line">if()&#123;</span><br><span class="line">//异步方法调用成功</span><br><span class="line">   resolve();</span><br><span class="line">&#125;else&#123;</span><br><span class="line">//异步方法调用失败</span><br><span class="line">   rejuct();</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">promise.then(function()&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>举例：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var  promise = new Promise(function(resolve,reject)&#123;</span><br><span class="line">    setTimeout(function (res) &#123;</span><br><span class="line">        resolve(res);</span><br><span class="line">    &#125;,2000,1);</span><br><span class="line">&#125;)</span><br><span class="line">promise.then(function(id)&#123;</span><br><span class="line">    console.log(id)//1</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></code></pre><ol>
+<li><p>Promise.all() 用法</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var  promise1 = new Promise(function(resolve,rejuct)&#123;</span><br><span class="line">if()&#123;</span><br><span class="line">//异步方法调用成功</span><br><span class="line">   resolve();</span><br><span class="line">&#125;else&#123;</span><br><span class="line">//异步方法调用失败</span><br><span class="line">   rejuct();</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">var  promise2 = new Promise(function(resolve,rejuct)&#123;</span><br><span class="line">if()&#123;</span><br><span class="line">//异步方法调用成功</span><br><span class="line">   resolve();</span><br><span class="line">&#125;else&#123;</span><br><span class="line">//异步方法调用失败</span><br><span class="line">   rejuct();</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">var pro = Promise.all([promise1,promise2])</span><br><span class="line">pro.then(function([a,b])&#123;</span><br><span class="line">   //在这里a和b都可以拿到</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>举例：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var  promise1 = new Promise(function(resolve,reject)&#123;</span><br><span class="line">        setTimeout(function (res) &#123;</span><br><span class="line">            resolve(res);</span><br><span class="line">        &#125;,2000,1);</span><br><span class="line">    &#125;)</span><br><span class="line">    var  promise2 = new Promise(function(resolve,reject)&#123;</span><br><span class="line">        setTimeout(function (res) &#123;</span><br><span class="line">            resolve(res);</span><br><span class="line">        &#125;,3000,2);</span><br><span class="line">    &#125;)</span><br><span class="line">    var pro = Promise.all([promise1,promise2]);</span><br><span class="line">    pro.then(function([a,b])&#123;</span><br><span class="line">        console.log(a+b)//3</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></code></pre><ol>
+<li>虽然不使用一些新语法和高阶用法也能实现一些功能，但是新语法和用法的诞生必定是解决了某个问题或提升了性能。所以在平时项目中还是要经常将一些高阶用法运用进去，如果不去实践，有些概念很难真正理解。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/19/youzhi2/" data-id="cjy9ze4k10005huw152nl4bdj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/19/youzhi/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">youzhi</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/19/youzhi2/">youzhi2</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/19/youzhi/">youzhi</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/19/code1/">code1</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/19/test2/">test2</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/19/test/">test</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
